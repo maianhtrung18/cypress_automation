@@ -19,6 +19,7 @@ describe("Test recruit qa engineer work sample", () => {
   beforeEach(() => {
     openApp();
   });
+
   it("Verify error is displayed when user input invalid email", () => {
     ["123", "123tr", "123tr@", "123tr@gmail", "123tr@gmail.com"].forEach(
       (email) => {
@@ -29,21 +30,34 @@ describe("Test recruit qa engineer work sample", () => {
     inputInfo(INFO_FIELDS.EMAIL, "");
     waitNotifycationDisplay(`'email' is required`);
   });
+
   it("Verify error is displayed when user dont input lastname", () => {
     inputInfo(INFO_FIELDS.LASTNAME, "Tester");
     inputInfo(INFO_FIELDS.LASTNAME, "");
     waitNotifycationDisplay(`'lastName' is required`);
   });
+
   it("Verify error is displayed when user dont input firstname", () => {
     inputInfo(INFO_FIELDS.FIRSTNAME, "Testing");
     inputInfo(INFO_FIELDS.FIRSTNAME, "");
     waitNotifycationDisplay(`'firstName' is required`);
   });
+
   it("Verify user can select all option in dropdown menu", () => {
     for (const infoSource of Object.values(INFO_SOURCE)) {
       selectInfoSource(infoSource);
       assertTextOfDropdownMenu(infoSource);
     }
+  });
+
+  it("Verify all errors are displayed when user dont input anything", () => {
+    clickSubmitButton();
+    waitNotifycationDisplay(`'email' is required`);
+    waitNotifycationDisplay(`'lastName' is required`);
+    waitNotifycationDisplay(`'firstName' is required`);
+    waitNotifycationDisplay(`'infoSource' is required`);
+    waitNotifycationDisplay(`'servicesOfInterest' is required`);
+    waitNotifycationDisplay(`'typeOfAssociation' is required`);
   });
 
   it("Veiry user can register successfully", () => {

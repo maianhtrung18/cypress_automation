@@ -4,7 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "@cypress/xpath": "^2.0.3",
     "cypress": "^13.13.3",
     "typescript": "^5.5.4"
   },
