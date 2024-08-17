@@ -19,7 +19,7 @@ describe("Test recruit qa engineer work sample", () => {
   beforeEach(() => {
     openApp();
   });
-  it("Test validation email", () => {
+  it("Verify error is displayed when user input invalid email", () => {
     ["123", "123tr", "123tr@", "123tr@gmail", "123tr@gmail.com"].forEach(
       (email) => {
         inputInfo(INFO_FIELDS.EMAIL, email);
@@ -29,17 +29,17 @@ describe("Test recruit qa engineer work sample", () => {
     inputInfo(INFO_FIELDS.EMAIL, "");
     waitNotifycationDisplay(`'email' is required`);
   });
-  it("Test lastname", () => {
+  it("Verify error is displayed when user dont input lastname", () => {
     inputInfo(INFO_FIELDS.LASTNAME, "Tester");
     inputInfo(INFO_FIELDS.LASTNAME, "");
     waitNotifycationDisplay(`'lastName' is required`);
   });
-  it("Test firstname", () => {
+  it("Verify error is displayed when user dont input firstname", () => {
     inputInfo(INFO_FIELDS.FIRSTNAME, "Testing");
     inputInfo(INFO_FIELDS.FIRSTNAME, "");
     waitNotifycationDisplay(`'firstName' is required`);
   });
-  it("Test dropdown menu", () => {
+  it("Verify user can select all option in dropdown menu", () => {
     for (const infoSource of Object.values(INFO_SOURCE)) {
       selectInfoSource(infoSource);
       assertTextOfDropdownMenu(infoSource);
