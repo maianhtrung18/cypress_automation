@@ -1,0 +1,15 @@
+{
+  "name": "lee-cypress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@cypress/xpath": "^2.0.3",
+    "cypress": "^13.13.3",
+    "typescript": "^5.5.4"
+  },
+  "scripts": {
+    "open-cypress-ui": "cypress open",
+    "run-testcases": "cypress run -b electron"
+  }
+}
